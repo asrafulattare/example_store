@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomNevController extends StatefulWidget {
-  const BottomNevController({Key? key}) : super(key: key);
+  const BottomNevController({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<BottomNevController> createState() => _BottomNevControllerState();
@@ -16,7 +18,7 @@ class BottomNevController extends StatefulWidget {
 class _BottomNevControllerState extends State<BottomNevController> {
   final _pages = [
     HomeScreen(),
-    MyAdsScreen(),
+    const MyAdsScreen(),
     const ChatScreen(),
     const AddScreen(),
     const MyAccountScreen()

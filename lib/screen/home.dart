@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../widgets/banner.dart';
 import '../widgets/gride_tile.dart';
+import '../widgets/toplistcategoris.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key, this.userName}) : super(key: key);
+  final String? userName;
 
   final List<String> _categories = [
     'Food',
@@ -73,33 +75,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                SizedBox(
-                  height: 50,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: _categories.length,
-                      itemBuilder: (_, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                              right: 8.0, bottom: 8, top: 8),
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
-                            height: 30,
-                            child: Center(
-                                child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
-                              child: Text(
-                                _categories[index],
-                              ),
-                            )),
-                          ),
-                        );
-                      }),
-                ),
+                TopListCatgoris(categories: _categories),
                 const SizedBox(
                   height: 10,
                 ),
