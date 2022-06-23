@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+class DetailsScrenn extends StatelessWidget {
+  const DetailsScrenn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,9 @@ class ChatScreen extends StatelessWidget {
         child: Column(children: [
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/second-screen');
+                Navigator.pop(context);
               },
-              child: const Text("Assalawlikum"))
+              child: const Text("Walikum Assalam"))
         ]),
       ),
     );

@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 
-class GridViewProducts extends StatelessWidget {
-  const GridViewProducts({
+class SliverGridProduct extends StatelessWidget {
+  const SliverGridProduct({
     Key? key,
     required this.itemCount,
   }) : super(key: key);
-
   final int itemCount;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: GridView.builder(
-          itemCount: itemCount,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 1 / 1.3,
-              crossAxisCount: 2),
-          itemBuilder: (_, index) {
-            return grideTile();
-          }),
+    return SliverGrid(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return grideTile();
+        },
+        childCount: itemCount,
+      ),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 10,
+          childAspectRatio: 1 / 1.3,
+          crossAxisSpacing: 10),
     );
   }
 }

@@ -4,7 +4,8 @@ import 'package:example_store/screen/chat.dart';
 import 'package:example_store/screen/home.dart';
 import 'package:example_store/screen/my_ads.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:feather_icons/feather_icons.dart';
+import 'package:awesome_icons/awesome_icons.dart';
 
 class BottomNevController extends StatefulWidget {
   const BottomNevController({
@@ -19,8 +20,8 @@ class _BottomNevControllerState extends State<BottomNevController> {
   final _pages = [
     HomeScreen(),
     const MyAdsScreen(),
-    const ChatScreen(),
-    const AddScreen(),
+    AddScreen(),
+    ChatScreen(),
     const MyAccountScreen()
   ];
 
@@ -35,15 +36,30 @@ class _BottomNevControllerState extends State<BottomNevController> {
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.house), label: "Home"),
+              icon: Icon(
+                FeatherIcons.home,
+              ),
+              label: "Home"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.bagShopping), label: "My Ads"),
+              icon: Icon(
+                FeatherIcons.briefcase,
+              ),
+              label: "My Ads"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.solidSquarePlus), label: "Add"),
+              icon: Icon(
+                FeatherIcons.plusCircle,
+              ),
+              label: "Add"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.solidMessage), label: "Message"),
+              icon: Icon(
+                FontAwesomeIcons.commentDots,
+              ),
+              label: "Message"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.solidUser), label: "My Account"),
+              icon: Icon(
+                FeatherIcons.user,
+              ),
+              label: "Me"),
         ],
         currentIndex: _currentIndex,
         onTap: (int index) {
