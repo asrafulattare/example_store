@@ -1,5 +1,4 @@
 import 'package:example_store/bottom_nev_controol.dart';
-import 'package:example_store/screen/home.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -9,9 +8,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginPageState extends State<LoginScreen> {
   String name = "";
+  String email = "";
   bool changeButton = false;
 
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _controller = TextEditingController();
 
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
@@ -20,8 +21,16 @@ class _LoginPageState extends State<LoginScreen> {
       });
       await Future.delayed(const Duration(seconds: 1));
       // ignore: use_build_context_synchronously
-      await Navigator.push(context,
-          MaterialPageRoute(builder: (context) => BottomNevController()));
+      await Navigator.push(
+          context,
+          MaterialPageRoute(
+              settings: RouteSettings(arguments: [
+                name,
+                email,
+              ]),
+              builder: (context) => BottomNevController(
+                    name1: name,
+                  )));
       setState(() {
         changeButton = false;
       });
@@ -34,6 +43,7 @@ class _LoginPageState extends State<LoginScreen> {
         color: Colors.white,
         child: SingleChildScrollView(
           child: Form(
+            autovalidateMode: AutovalidateMode.always,
             key: _formKey,
             child: Column(
               children: [
@@ -41,7 +51,7 @@ class _LoginPageState extends State<LoginScreen> {
                   height: 70.0,
                 ),
                 Image.asset(
-                  "assets/watch.png",
+                  "assets/login.png",
                   fit: BoxFit.cover,
                   height: 200,
                 ),
@@ -64,16 +74,20 @@ class _LoginPageState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       TextFormField(
+                        controller: _controller,
+                        keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
-                          hintText: "Enter username",
-                          labelText: "Username",
+                          hintText: "Enter your name",
+                          labelText: "Name",
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Username cannot be empty";
+                            return "Username can not be empty";
+                          } else if (value.length < 4) {
+                            return "minimum 4 characters required";
+                          } else {
+                            return null;
                           }
-
-                          return null;
                         },
                         onChanged: (value) {
                           name = value;
@@ -81,6 +95,27 @@ class _LoginPageState extends State<LoginScreen> {
                         },
                       ),
                       TextFormField(
+                        //controller: _controller,
+                        decoration: const InputDecoration(
+                          hintText: "Enter email",
+                          labelText: "Email",
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Email can not be empty";
+                          } else if (value.length < 4) {
+                            return "this fild is not empty";
+                          } else {
+                            return null;
+                          }
+                        },
+                        onChanged: (value) {
+                          email = value;
+                          setState(() {});
+                        },
+                      ),
+                      TextFormField(
+                        //controller: _controller,
                         obscureText: true,
                         decoration: const InputDecoration(
                           hintText: "Enter password",

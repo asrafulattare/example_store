@@ -10,18 +10,22 @@ import 'package:awesome_icons/awesome_icons.dart';
 class BottomNevController extends StatefulWidget {
   const BottomNevController({
     Key? key,
+    this.name1,
+    this.email,
   }) : super(key: key);
+  final String? name1;
+  final String? email;
 
   @override
   State<BottomNevController> createState() => _BottomNevControllerState();
 }
 
 class _BottomNevControllerState extends State<BottomNevController> {
-  final _pages = [
+  final dynamic _pages = [
     HomeScreen(),
     const MyAdsScreen(),
     AddScreen(),
-    ChatScreen(),
+    const ChatScreen(),
     const MyAccountScreen()
   ];
 

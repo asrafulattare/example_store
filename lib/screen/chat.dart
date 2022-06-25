@@ -6,16 +6,22 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.teal,
       body: Padding(
         padding: const EdgeInsets.all(50.0),
-        child: Column(children: [
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/second-screen');
-              },
-              child: const Text("Assalawlikum"))
-        ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/detailsScreen');
+                  },
+                  child: const Text("Assalawlikum")),
+            )
+          ],
+        ),
       ),
     );
   }

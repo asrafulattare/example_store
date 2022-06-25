@@ -70,7 +70,7 @@ class _MyAdsScreenState extends State<MyAdsScreen>
         children: const [
           Padding(
             padding: EdgeInsets.only(left: 20),
-            child: SliverGridProduct(itemCount: 2),
+            child: GridViewProducts(itemCount: 2),
           ),
           ListViewProducts(itemCount: 2),
         ],

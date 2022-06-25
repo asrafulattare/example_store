@@ -26,13 +26,18 @@ Widget listTile() {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Card(
+      color: const Color.fromARGB(255, 255, 255, 255),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
       elevation: 5,
       child: ListTile(
-        leading: Image.asset(
-          "assets/watch.png",
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(150.0),
+          child: Image.asset(
+            "assets/watch.png",
+            fit: BoxFit.cover,
+          ),
         ),
         title: const Text("Apple Watch"),
         subtitle: const Text("Series 6 . Red"),
